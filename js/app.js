@@ -67,30 +67,6 @@ var initialLocations = [
 var map;
 var markers = [];
 
-function initMap() {
-	map = new google.maps.Map(document.getElementById('map'), {
-		center: {lat: 40.757733, lng: -73.828949},
-		zoom: 15
-	});
-
-	for (var i = 0; i < initialLocations.length; i++) {
-		var position = new google.maps.LatLng(initialLocations[i].lat,initialLocations[i].lng);
-		var title = initialLocations[i].title;
-
-		var marker = new google.maps.Marker({
-			position: position,
-			title: title,
-			id: i
-		});
-
-		markers.push(marker);
-	}
-
-	for (var i = 0; i < markers.length; i++) {
-		markers[i].setMap(map);
-	}
-}
-
 var Location = function(data) {
 	var self = this;
 	this.title = data.title;
@@ -104,6 +80,7 @@ var Location = function(data) {
 	this.rating = '';
 	this.image = '';
 
+	/*
 	var fourSquare = 'https://api.foursquare.com/v2/venues/' + this.id + '?' + '&client_id=' + clientID + '&client_secret=' + clientSecret + '&v=20180315';
 
 	$.getJSON(fourSquare).done(function(data) {
@@ -134,6 +111,7 @@ var Location = function(data) {
 	}).fail(function() {
 		alert('There was an error loading the FourSquare API. Please try again later.');
 	});
+	*/
 }
 
 var ViewModel = function() {
@@ -144,6 +122,28 @@ var ViewModel = function() {
 	initialLocations.forEach(function(locItem) {
 		self.locationList.push(new Location(locItem));
 	})
+
+	map = new google.maps.Map(document.getElementById('map'), {
+		center: {lat: 40.757733, lng: -73.828949},
+		zoom: 15
+	});
+
+	for (var i = 0; i < initialLocations.length; i++) {
+		var position = new google.maps.LatLng(initialLocations[i].lat,initialLocations[i].lng);
+		var title = initialLocations[i].title;
+
+		var marker = new google.maps.Marker({
+			position: position,
+			title: title,
+			id: i
+		});
+
+		markers.push(marker);
+	}
+
+	for (var i = 0; i < markers.length; i++) {
+		markers[i].setMap(map);
+	}
 }
 
 function loadMap() {
