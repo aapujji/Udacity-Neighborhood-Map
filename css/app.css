@@ -14,6 +14,10 @@ h3, h5 {
 	margin: 0;
 }
 
+h5 {
+	font-size: 13px;
+}
+
 ul, li {
 	list-style: none;
 	margin: 0;
@@ -100,6 +104,11 @@ ul, li {
 	display: flex;
 	width: 100%;
 	padding: 20px 10px;
+	cursor: pointer;
+}
+
+.sidebar .results li:hover {
+	background: #fafafa;
 }
 
 .sidebar .results .result-img {
@@ -122,4 +131,23 @@ ul, li {
 	left: 300px;
 	right: 0;
 	bottom: 0;
+}
+
+/* CSS for infowindow */
+
+.info-window h5 {
+	font-size: 13px;
+	font-weight: 600;
+}
+
+.info-window p {
+	margin: 0;
+}
+
+.info-window .category {
+	font-size: 11px;
+}
+
+.info-window .address {
+	margin-top: 10px;
 }
