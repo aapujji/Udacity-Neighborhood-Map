@@ -26,8 +26,8 @@ var initialLocations = [
 	{
 		title: 'Spot Dessert Bar',
 		location: {
-			lat: 40.729364,
-			lng: -73.988949
+			lat: 40.759251,
+			lng: -73.832192
 		},
 		id: '585c91bc07ac076844eba90b'
 	},
@@ -137,6 +137,16 @@ var Location = function(data) {
 		animation: google.maps.Animation.DROP
 	});
 
+	self.filterMarkers = ko.computed(function() {
+		if (self.visible() === true) {
+			self.marker.setMap(map);
+
+		} 
+		else {
+			self.marker.setMap(null);
+		}
+	});
+
 	self.marker.setMap(map);
 
 	this.marker.addListener('click', function() {
@@ -155,11 +165,29 @@ var Location = function(data) {
 var ViewModel = function() {
 	self = this;
 
+	this.searchTerm = ko.observable('');
+
 	this.locationList = ko.observableArray([]);
 
 	initialLocations.forEach(function(locItem) {
 		self.locationList.push(new Location(locItem));
-	})
+	});
+
+	this.searchList = ko.computed(function() {
+		var filter = self.searchTerm().toLowerCase();
+		if (filter) {
+			return ko.utils.arrayFilter(self.locationList(), function(location) {
+				var str = location.title.toLowerCase();
+				var result = str.includes(filter);
+				location.visible(result);
+				return result;
+			});
+		}
+		self.locationList().forEach(function(location) {
+			location.visible(true);
+		});
+		return self.locationList();
+	}, self);
 }
 
 function populateInfoWindow(marker, infowindow, content) {

@@ -101,24 +101,13 @@ ul, li {
 }
 
 .sidebar .results li {
-	display: flex;
 	width: 100%;
-	padding: 20px 10px;
+	padding: 20px 30px;
 	cursor: pointer;
 }
 
 .sidebar .results li:hover {
 	background: #fafafa;
-}
-
-.sidebar .results .result-img {
-	width: 50px;
-	flex: 0 0 50px;
-	margin-right: 10px;
-}
-
-.sidebar .results .result-img img {
-	max-width: 100%;
 }
 
 .sidebar .results h5 {

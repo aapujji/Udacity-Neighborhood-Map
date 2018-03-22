@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title></title>
+		<title>Neighborhood Map - Flushing</title>
 		<meta charset="UTF-8">
 
 		<link href="https://fonts.googleapis.com/css?family=Poppins:500,600|Muli:400" rel="stylesheet">
@@ -13,22 +13,18 @@
 		<div class="container">
 			<div class="sidebar">
 				<div class="heading">
-					<h3>Search Results</h3>
+					<h3>Neighborhood Map</h3>
 					<i class="fas fa-bars"></i>
 				</div>
 				<div class="search-bar">
-					<input type="text" id="search-box" placeholder="Search" onfocus="this.placeholder=''" onblur="this.placeholder='Search'">
+					<input type="text" id="search-box" placeholder="Search" onfocus="this.placeholder=''" onblur="this.placeholder='Search'" data-bind="textInput: searchTerm, valueUpdate: 'afterkeydown'">
 					<i class="fas fa-search"></i>
 				</div>
 				<div class="scrollable">
-					<ul class="results" data-bind="foreach: locationList">
+					<ul class="results" data-bind="foreach: searchList">
 						<li data-bind="click: show">
-							<div class="result-img">
-								<img src="" alt="" />
-							</div>
 							<div class="result-info">
 								<h5 data-bind="text: title"></h5>
-								<span data-bind="text: category"></span>
 							</div>
 						</li>
 					</ul>
