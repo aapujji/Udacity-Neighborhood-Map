@@ -14,3 +14,11 @@ A single page application featuring a map of my neighborhood including 10 highli
 The app displays 10 restaurants or bars in Flushing, New York as a list and as map markers. Each marker has additional information about the location, such as the category the place falls into and the place's address.
 
 You can use the search bar in the sidebar to filter through the locations.
+
+## Links
+
+1. [Google Maps API](https://developers.google.com/)
+
+2. [Foursquare API](https://developer.foursquare.com/)
+
+3. [KnockoutJS](http://knockoutjs.com/)
