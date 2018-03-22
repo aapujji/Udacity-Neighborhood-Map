@@ -1,3 +1,4 @@
+// Array of locations
 var initialLocations = [
 	{
 		title: 'Leaf Bar and Lounge',
@@ -81,6 +82,7 @@ var initialLocations = [
 	}
 ]
 
+// Initialize global variables for later use
 var map;
 var infoWindow;
 var infoWindowContent;
@@ -110,11 +112,13 @@ var Location = function(data) {
 
 	this.visible = ko.observable(true);
 
+	// Setup foursquare API
 	clientID = 'K3WBLEHA15Z2BS0V0ZPR5LWQDA0HFOHWELW3A3VL5SHXITA4';
 	clientSecret = 'UQFA50CAD5JGY2XXVL1BG4A4P4RUXLWKWETS1T2ZSTPVSMG2';
 
 	var fourSquare = 'https://api.foursquare.com/v2/venues/' + this.id + '?' + '&client_id=' + clientID + '&client_secret=' + clientSecret + '&v=20180322';
 
+	// Retrieve data about locations from foursquare API
 	$.getJSON(fourSquare).done(function(data) {
 		var results = data.response.venue;
 
@@ -131,16 +135,17 @@ var Location = function(data) {
 		alert('There was an error loading the FourSquare API. Please try again later.');
 	});
 
+	// Create markers for each location
 	this.marker = new google.maps.Marker({
 		position: this.location,
 		title: this.title,
 		animation: google.maps.Animation.DROP
 	});
 
+	// Show or hide markers based on filters
 	self.filterMarkers = ko.computed(function() {
 		if (self.visible() === true) {
 			self.marker.setMap(map);
-
 		} 
 		else {
 			self.marker.setMap(null);
@@ -149,6 +154,7 @@ var Location = function(data) {
 
 	self.marker.setMap(map);
 
+	// Display infowindow and add animation for markers when clicked
 	this.marker.addListener('click', function() {
 		infoWindowContent = '<div class="info-window"><div class="title"><h5>' + this.title + '</h5><p class="category">' + self.category + '</p></div>' + 
 		'<div class="address"><p>' + self.street + '<p><p>' + self.city + '</p></div></div>';
@@ -157,6 +163,7 @@ var Location = function(data) {
 		toggleBounce(this);
 	});
 
+	// Function to show infowindow when locations in list are clicked
 	this.show = function(location) {
 		google.maps.event.trigger(self.marker, 'click');
 	}
@@ -173,6 +180,7 @@ var ViewModel = function() {
 		self.locationList.push(new Location(locItem));
 	});
 
+	// Generate list of locations based on characters entered in search field
 	this.searchList = ko.computed(function() {
 		var filter = self.searchTerm().toLowerCase();
 		if (filter) {
@@ -190,6 +198,7 @@ var ViewModel = function() {
 	}, self);
 }
 
+// Function to populate infowindow
 function populateInfoWindow(marker, infowindow, content) {
 	// Make sure infowindow is not already open for this marker
 	if (infowindow.marker != marker) {
@@ -208,6 +217,7 @@ function populateInfoWindow(marker, infowindow, content) {
 	}
 }
 
+// Function to toggle bounce animation when markers/locations in list are clicked
 function toggleBounce(marker) {
 	if (marker.getAnimation() != null) {
 		marker.setAnimation(null);
