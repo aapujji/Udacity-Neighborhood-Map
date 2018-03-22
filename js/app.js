@@ -110,8 +110,8 @@ var Location = function(data) {
 
 	this.visible = ko.observable(true);
 
-	clientID = 'P3XHFH4QAQCNQFKKECSLQSFXM5NU5KAPMOPRERBUZWSAVAD2';
-	clientSecret = 'L2HAYGAW1TQKCKDDFN0BAZH3W1RU2FPFSBH3XOAUEEEUVKHE';
+	clientID = 'K3WBLEHA15Z2BS0V0ZPR5LWQDA0HFOHWELW3A3VL5SHXITA4';
+	clientSecret = 'UQFA50CAD5JGY2XXVL1BG4A4P4RUXLWKWETS1T2ZSTPVSMG2';
 
 	var fourSquare = 'https://api.foursquare.com/v2/venues/' + this.id + '?' + '&client_id=' + clientID + '&client_secret=' + clientSecret + '&v=20180322';
 
