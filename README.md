@@ -9,7 +9,7 @@ A single page application featuring a map of my neighborhood including 10 highli
 ## Setup
 
 1. Downlaod or clone the repository.
-2. Open index.html in your browser
+2. Open index.html in your browser.
 
 ## Features
 
