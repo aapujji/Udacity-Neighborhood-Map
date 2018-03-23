@@ -80,7 +80,7 @@ var initialLocations = [
 		},
 		id: '514cc041e4b0f4bc3127b7d9'
 	}
-]
+];
 
 // Initialize global variables for later use
 var map;
@@ -166,8 +166,8 @@ var Location = function(data) {
 	// Function to show infowindow when locations in list are clicked
 	this.show = function(location) {
 		google.maps.event.trigger(self.marker, 'click');
-	}
-}
+	};
+};
 
 var ViewModel = function() {
 	self = this;
@@ -196,7 +196,7 @@ var ViewModel = function() {
 		});
 		return self.locationList();
 	}, self);
-}
+};
 
 // Function to populate infowindow
 function populateInfoWindow(marker, infowindow, content) {
@@ -219,7 +219,7 @@ function populateInfoWindow(marker, infowindow, content) {
 
 // Function to toggle bounce animation when markers/locations in list are clicked
 function toggleBounce(marker) {
-	if (marker.getAnimation() != null) {
+	if (marker.getAnimation() !== null) {
 		marker.setAnimation(null);
 	}
 	else {
