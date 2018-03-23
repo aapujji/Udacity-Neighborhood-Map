@@ -1,8 +1,8 @@
-# Udacity-Neighborhood-Map v 1.0
+# Udacity-Neighborhood-Map version 1.0 03/23/18
 
 ## Description
 
-A single page application featuring a map of my neighborhood including 10 highlighted locations, data about those locations taken from the Foursquare API and an option to filter the content. Built using Google Maps API and KnockoutJS.
+A single page application featuring a map of my neighborhood including 10 highlighted locations, data about those locations taken from the Foursquare API and an option to filter the content. Built using Google Maps API and KnockoutJS. To setup this app on your local machine, refer to the 'Setup' section of this readme.
 
 ## Setup
 
@@ -22,3 +22,7 @@ You can use the search bar in the sidebar to filter through the locations.
 2. [Foursquare API](https://developer.foursquare.com/)
 
 3. [KnockoutJS](http://knockoutjs.com/)
+
+## Contact
+
+For questions, comments or suggestions please send them to aapujji@yahoo.com.
