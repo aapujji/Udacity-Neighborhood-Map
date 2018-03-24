@@ -229,3 +229,7 @@ function toggleBounce(marker) {
 		}, 700);
 	}
 }
+
+function mapError() {
+	alert('There was an error loading the map. Please try again later.');
+}
